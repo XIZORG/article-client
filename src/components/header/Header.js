@@ -4,9 +4,10 @@ import styles from './style-header.module.css'
 const Header = (props) => {
     return (
         <div class={styles.menu}>
-        	<ul>                                                                         
+        	<ul>      
+                <li><NavLink to={"/"} class={styles.list}>Main</NavLink></li>                                                                   
                 <li><NavLink to={"/articles"} class={styles.list}>Articles</NavLink></li>
-                <li><NavLink to={"/"} class={styles.list}>Main</NavLink></li>
+                <li><NavLink to={"/authors"} class={styles.list}>Authors</NavLink></li>
         	</ul>
         </div>
     );

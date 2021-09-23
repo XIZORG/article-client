@@ -10,11 +10,10 @@ const Articles = (props) => {
     
     useEffect( () => {
         getAllArticles().then( (resp) => {
-            console.log(resp);
             const allArticles = resp.data;
             setArticleState(allArticles);
         });
-    }, [setArticleState] );
+    }, []);
 
     if (articleState === null) return <>Downloading...</>
 

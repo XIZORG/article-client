@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react"
+import { useHistory } from "react-router";
 import { getArticle, updateArticle } from "../../dal/server/articles-api";
 
 const ArticleUpdatePage = (props) => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [articleState, setArticleState] = useState({});
-    
+    const history = useHistory();
+
     useEffect( () => {
-        getArticle(window.location.href.split('/')[5]).then( (resp) => {
-            console.log(resp);
+        getArticle(window.location.href.split('/').pop()).then( (resp) => {
             const article = resp.data;
             setArticleState(article);
         });
-    }, [setArticleState] );
+    }, [] );
 
     const sendDataToServer = (e) => {
         e.preventDefault();
-        updateArticle(window.location.href.split('/')[5], name, description, []).then(response => {
-            console.log(response);
+        updateArticle(window.location.href.split('/').pop(), name, description, []).then(response => {
+            history.push('/articles');
         }).catch(e => console.log(e.response));
     }
 

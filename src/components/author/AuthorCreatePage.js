@@ -1,17 +1,16 @@
 import { useState } from "react"
 import { useHistory } from "react-router";
-import { createArticle } from "../../dal/server/articles-api";
+import { createAuthors } from "../../dal/server/authors-api";
 
-const ArticleCreatePage = (props) => {
+const AuthorCreatePage = (props) => {
     const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
     let history = useHistory();
 
     const sendDataToServer = (e) => {
         e.preventDefault();
-        createArticle(name,description).then(response => {
+        createAuthors(name).then(response => {
             console.log(response);
-            history.push('/articles');
+            history.push('/authors');
         }).catch(e => console.log(e.response));
     }
 
@@ -19,19 +18,14 @@ const ArticleCreatePage = (props) => {
         setName(e.target.value);
     }
 
-    const changeDescriptionString = (e) => {
-        setDescription(e.target.value);
-    }
-
     return (
         <>
-            <form className={"createArticle"} onSubmit={sendDataToServer}>
+            <form className={"createAuthor"} onSubmit={sendDataToServer}>
                 <input value={name} onChange={changeNameString}/>
-                <input value={description} onChange={changeDescriptionString}/>
                 <button>create</button>
             </form>
         </>
     )
 }
 
-export default ArticleCreatePage;
+export default AuthorCreatePage;
