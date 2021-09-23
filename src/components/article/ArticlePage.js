@@ -38,9 +38,9 @@ const ArticlePage = (props) => {
                                 </div>})
                 }
             </div>
-            <div className={"btn btn-primary"}>
+            <button className={"btn btn-primary"}>
                 <Link to = {{pathname: '/articles/update/' + articleState.id}}>update</Link>
-            </div>
+            </button>
             <div className={"btn btn-danger"}>
                 <button onClick={sendDataToServer}> delete</button>
             </div>

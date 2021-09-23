@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import './assets/styles/reset.css';
+import './assets/styles/baseStyles.css';
 
 ReactDOM.render(
   <BrowserRouter>

@@ -1,7 +1,7 @@
 import { Route, Switch } from "react-router-dom";
 import ArticleCreatePage from "./components/article/ArticleCreatePage";
 import ArticlePage from "./components/article/ArticlePage";
-import Articles from "./components/article/Articles";
+import ArticlesPage from "./components/article/ArticlesPage";
 import ArticleUpdatePage from "./components/article/ArticleUpdatePage";
 import AuthorCreatePage from "./components/author/AuthorCreatePage";
 import AuthorPage from "./components/author/AuthorPage";
@@ -23,7 +23,7 @@ function App() {
           <Route
             path={"/articles"}
             exact
-            render={() => <Articles />}
+            render={() => <ArticlesPage />}
           />
           <Route
             path={"/articles/create"}

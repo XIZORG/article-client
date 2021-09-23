@@ -34,7 +34,6 @@ const AuthorUpdatePage = (props) => {
         <>
             <div class="flex-shrink-0">
                 <div class="mt-5">Name: {authorState.name}</div>
-                <div class="lead">Description: {authorState.description}</div>
                 <div>
                     {
                     authorState.authors && authorState.authors.map(author => {

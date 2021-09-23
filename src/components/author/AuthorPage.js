@@ -30,9 +30,9 @@ const AuthorPage = (props) => {
         <div className="flex-shrink-0">
             <div className="mt-5">Name: {authorState.name}</div>
 
-            <div className={"btn btn-primary"}>
+            <button className={"btn btn-primary"}>
                 <Link to = {{pathname: '/authors/update/' + authorState.id}}>update</Link>
-            </div>
+            </button>
             <div className={"btn btn-danger"}>
                 <button onClick={sendDataToServer}> delete</button>
             </div>

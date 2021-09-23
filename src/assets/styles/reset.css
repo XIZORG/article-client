@@ -75,3 +75,10 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+a, button {
+  text-decoration: none;
+  outline: none;
+  color: white;
+  border: 0;
+}
