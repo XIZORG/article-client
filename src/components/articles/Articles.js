@@ -21,18 +21,21 @@ const Articles = (props) => {
     return (
         <div>
             {
-                articleState.map(article => {
-                    return  <div class="card">
-                                <div class="card-body">
-                                    <div class="card-title">
-                                        <ArticleBlock name={article.name} key={article.id}/> 
-                                    </div>
-                                    <div class={"btn btn-primary " + styles.button}>
-                                        <Link to = {{pathname: '/articles/' + article.id}}>details</Link>
-                                    </div>
+            articleState.map(article => {
+                return  <div className="card">
+                            <div className="card-body">
+                                <div className="card-title">
+                                    <ArticleBlock name={article.name} key={article.id}/> 
                                 </div>
-                            </div>})
+                                <div className={"btn btn-primary " + styles.button}>
+                                    <Link to = {{pathname: '/articles/show/' + article.id}}>details</Link>
+                                </div>
+                            </div>
+                        </div>})
             }
+            <div className={"btn btn-primary " + styles.button}>
+                <Link to = {{pathname: '/articles/create'}}>create new article</Link>
+            </div>
         </div>
     )
 }

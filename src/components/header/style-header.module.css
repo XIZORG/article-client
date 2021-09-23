@@ -1,11 +1,7 @@
-.header {
-    background-color: bisque;
-}
-
 .menu{
     height:42px;
     margin:0px;
-    background-color: rgb(142, 168, 167);
+    background-color: rgb(219, 199, 141);
     }
     .menu ul{
     list-style:none;
@@ -15,6 +11,9 @@
     .menu ul li{
     display:inline;
     }
+    
+
+
     .menu ul li a{
     float:left;
     height:42px;
@@ -35,3 +34,24 @@
     line-height:42px;
     font-size:14px;
     }
+
+.list:hover {
+    animation: bounce 1s;
+}
+
+@keyframes bounce {
+    0%, 20%, 60%, 100% {
+        transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-20px);
+        transform: translateY(-20px);
+    }
+
+    80% {
+        transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+}

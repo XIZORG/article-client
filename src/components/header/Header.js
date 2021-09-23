@@ -5,8 +5,8 @@ const Header = (props) => {
     return (
         <div class={styles.menu}>
         	<ul>                                                                         
-                <li><NavLink to={"/articles"} className="el_link">Articles</NavLink></li>
-                <li><NavLink to={"/"} className="el_link">Main</NavLink></li>
+                <li><NavLink to={"/articles"} class={styles.list}>Articles</NavLink></li>
+                <li><NavLink to={"/"} class={styles.list}>Main</NavLink></li>
         	</ul>
         </div>
     );
