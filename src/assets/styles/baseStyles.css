@@ -21,6 +21,7 @@ button {
 
 button.col-secondary {
     background-color:  #44b144;
+    margin-top: 10px;
 }
 
 button.col-secondary:hover {

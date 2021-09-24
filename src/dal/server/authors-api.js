@@ -19,3 +19,7 @@ export const updateAuthors = (authorId, name) => {
 export const deleteAuthors = (authorId) => {
     return axiosInstance.delete(`authors/${authorId}`);
 }
+
+export const addArticleToAuthor = (authorId, id) => {
+    return axiosInstance.post(`authors/${authorId}/article`, {id});
+}

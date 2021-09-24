@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getAllArticles } from "../../dal/server/articles-api";
-import Article from "./Article";
 import ArticleBlock from "./ArticleBlock";
 import styles from "./style-articles.module.css";
 
