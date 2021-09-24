@@ -8,8 +8,8 @@ export const getArticle = (articleId) => {
     return axiosInstance.get(`articles/${articleId}`);
 }
 
-export const createArticle = (name, description) => {
-    return axiosInstance.post('articles', {description, name});
+export const createArticle = (name, description, authorsId) => {
+    return axiosInstance.post('articles', {description, name, authorsId});
 }
 
 export const updateArticle = (articleId, name, description, authorsId) => {

@@ -18,7 +18,7 @@ const Authors = (props) => {
     if (authorState === null) return <>Downloading...</>;
 
     return (
-        <div>
+        <div className={styles.articlesPage}>
             <div className={styles.articleWrapper}>
                 {authorState.map((auhtor) => (
                     <AuthorBlock name={auhtor.name} id={auhtor.id} />

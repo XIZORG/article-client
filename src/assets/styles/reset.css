@@ -79,6 +79,6 @@ select {
 a, button {
   text-decoration: none;
   outline: none;
-  color: white;
+  background-color: transparent;
   border: 0;
 }

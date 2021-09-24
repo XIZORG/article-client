@@ -1,0 +1,64 @@
+.article {
+
+}
+.article .name {
+    margin-top: 20px;
+
+    font-size: 48px;
+    font-weight: 700;
+}
+.article .description {
+    font-size: 18px;
+    text-indent: 20px;
+}
+
+.article .authors {
+    margin-top: 20px;
+    
+}
+
+.article .authors .text {
+    font-style: italic;
+    color: gray;
+    padding-left: 20px;
+}
+
+.article .authors .author {
+    
+}
+
+.btnToggleRedo {
+    margin-top: 25px;
+
+    display: flex;
+    align-items: center;
+}
+
+.btnToggleRedo img {
+    width: 20px;
+    height: 20px;
+
+    transform: rotate(270deg);
+    margin-right: 10px;
+}
+
+.btnToggleRedo.__opened img {
+    transform: rotate(90deg);
+}
+
+.btnText {
+    font-size: 18px;
+}
+
+.alertBtnWrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+.alertBtnWrapper button {
+    flex: 0 1 25%;
+}
+
+.alertDelete .title {
+    margin-bottom: 15px;  
+}

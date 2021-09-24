@@ -1,0 +1,23 @@
+.alertWrapper {
+    position: absolute;
+
+    background-color: rgba(128, 128, 128, 0.514);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    
+}
+
+.alert {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 10px;
+    border-radius: 7px;
+
+    background-color: white;
+}

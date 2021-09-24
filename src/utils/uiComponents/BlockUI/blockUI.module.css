@@ -1,0 +1,17 @@
+.block {
+    display: flex;
+    flex-direction: column;
+
+    cursor: pointer;
+}
+.block img {
+    width: 400px;
+    height: 200px;
+
+    border-radius: 10px;
+}
+.block .name {
+    font-weight: bold;
+    font-size: 28px;
+}
+
