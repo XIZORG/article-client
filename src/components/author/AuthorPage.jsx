@@ -32,8 +32,8 @@ const AuthorPage = (props) => {
     if (authorState === null) return <>Downloading...</>
 
     return (
-        <div className="flex-shrink-0">
-            <div className="mt-5">Name: {authorState.name}</div>
+        <div className={styles.author}>
+            <h1>{authorState.name}</h1>
 
             <button className={styles.btnToggleRedo + (isRedoMenuOpen ? " " + styles.__opened : "")} onClick={toggleRedoMenu}>
                 <img src={'https://cdn-icons-png.flaticon.com/512/709/709586.png'} alt="" />

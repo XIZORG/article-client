@@ -6,7 +6,13 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  
 }
+
+.author {
+    padding: 0 20px 0;
+}
+
 .articleBlock {
   flex: 0 1 30%;
   margin-top: 15px;
@@ -131,4 +137,9 @@
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-between;
+  margin-right: 20px;
+}
+
+.marginLeft {
+    margin-left: 10px;
 }
