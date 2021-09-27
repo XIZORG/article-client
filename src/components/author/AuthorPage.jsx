@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import { deleteAuthors, getAuthors } from "../../dal/server/authors-api";
+import AuthorRedo from "./AuthorRedo";
+import styles from "./style-authors.module.css";
 
 
 const AuthorPage = (props) => {
-
+    const [isRedoMenuOpen, setIsRedoMenuOpen] = useState(false);
     const [authorState, setAuthorState] = useState({});
     let history = useHistory();
 
@@ -24,18 +25,27 @@ const AuthorPage = (props) => {
         }).catch(e => console.log(e.response));
     }
 
+    const toggleRedoMenu = () => {
+        setIsRedoMenuOpen((prev) => !prev);
+    };
+
     if (authorState === null) return <>Downloading...</>
 
     return (
         <div className="flex-shrink-0">
             <div className="mt-5">Name: {authorState.name}</div>
 
-            <button className={"btn btn-primary"}>
-                <Link to = {{pathname: '/authors/update/' + authorState.id}}>update</Link>
+            <button className={styles.btnToggleRedo + (isRedoMenuOpen ? " " + styles.__opened : "")} onClick={toggleRedoMenu}>
+                <img src={'https://cdn-icons-png.flaticon.com/512/709/709586.png'} alt="" />
+                <div className={styles.btnText}>Edit menu</div> 
+                
             </button>
-            <div className={"btn btn-danger"}>
-                <button onClick={sendDataToServer}> delete</button>
-            </div>
+            {isRedoMenuOpen && (
+                <AuthorRedo
+                    authorState={authorState}
+                    deleteArticleOnServer={sendDataToServer}
+                />
+            )}
         </div>
     )
 }

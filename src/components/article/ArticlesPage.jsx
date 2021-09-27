@@ -10,6 +10,7 @@ const ArticlesPage = (props) => {
     const [article, setArticle] = useState(null);
 
     useEffect(() => {
+        console.log("THIS IS A TEXT AZAZAZSAZ")
         getAllArticles().then((resp) => {
             const allArticles = resp.data;
             setArticle(allArticles);
@@ -33,7 +34,7 @@ const ArticlesPage = (props) => {
                 ))}
             </div>
 
-            <button className={styles.button + " col-secondary"}>
+            <button className={styles.button}>
                 <Link to={{ pathname: "/articles/create" }}>
                     create new article
                 </Link>

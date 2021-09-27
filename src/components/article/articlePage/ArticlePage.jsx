@@ -56,7 +56,7 @@ const ArticlePage = (props) => {
     const toggleRedoMenu = () => {
         setIsRedoMenuOpen((prev) => !prev);
     };
-    console.log(isRedoMenuOpen)
+
     if (articleState === null || authorState === null)
         return <>Downloading...</>;
 
@@ -64,33 +64,7 @@ const ArticlePage = (props) => {
         <div className={styles.article}>
             <div className={styles.name}>{articleState.name}</div>
             <div className={styles.description}>
-                {articleState.description} + Lorem ipsum, dolor sit amet
-                consectetur adipisicing elit. Voluptatem eaque illo quo
-                reiciendis, tenetur pariatur minus sit sunt autem, doloribus
-                quod rem earum nostrum aut vel. Voluptas ea dignissimos
-                repellendus magni architecto labore voluptatem quia deleniti
-                inventore omnis officiis eum rerum at reprehenderit obcaecati
-                illum, consequuntur facere repellat. Eum quam inventore fugit
-                earum sint aliquam similique, dignissimos quaerat commodi
-                veritatis iusto ab doloribus vero provident facilis?
-                Necessitatibus maxime nemo minus nobis id laudantium nihil optio
-                voluptate quibusdam alias possimus quasi dolorem iusto,
-                repudiandae facilis similique expedita qui? Necessitatibus, at
-                possimus soluta harum numquam hic commodi error praesentium
-                animi impedit, maiores ipsam modi adipisci suscipit cumque esse
-                mollitia quos voluptatem consectetur reiciendis ad tempore. Nam,
-                in? Illum, nisi numquam. Nostrum vel alias, eaque provident
-                molestias voluptatem officia cumque, amet velit iste doloribus
-                reiciendis eos vitae? Dignissimos reprehenderit cupiditate
-                molestias provident quaerat similique, tempora porro ad
-                necessitatibus, officia dolorum, commodi amet iure ullam
-                asperiores consectetur distinctio impedit. Reiciendis incidunt,
-                temporibus voluptatum ratione sunt placeat iste possimus
-                laboriosam laborum ullam dolorum maxime ipsam, autem earum quas
-                cumque sed accusantium? Nam nobis quidem natus perspiciatis
-                asperiores. Vel atque maxime dolores at illum neque? Officia,
-                incidunt in explicabo sequi dolorum velit corporis ad sed
-                reiciendis.
+                {articleState.description}
             </div>
             <div className={styles.authors}>
                 <span className={styles.text}>Authors: </span>
