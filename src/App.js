@@ -10,57 +10,77 @@ import Header from "./components/header/Header";
 import MainPage from "./components/main-page/MainPage";
 import styles from "./App.module.css";
 import ArticlePage from "./components/article/articlePage/ArticlePage";
+import React, { useState } from 'react';
+import AddAuthorsToArticlesPage from "./components/article/articlePage/AddAuthorsToArticlesPage";
+
+export const ArticleContext = React.createContext();
 
 function App() {
+  const [articleArray, setarticleArray] = useState([])
+
+  const setContext = (e) => {
+    setarticleArray(e);
+  }
+
   return (
     <div className={styles.root}>
       <div className={styles.container}>
-        <Header />
-        <Switch>
-          <Route path={"/"} exact render={() => <MainPage />} />
+        <ArticleContext.Provider value={articleArray}>
+          <Header />
+          <Switch>
+            <Route path={"/"} exact render={() => <MainPage />} />
 
-          {/* Articles part */}
-          <Route
-            path={"/articles"}
-            exact
-            render={() => <ArticlesPage />}
-          />
-          <Route
-            path={"/articles/create"}
-            exact
-            render={() => <ArticleCreatePage />}
-          />
-          <Route
-            path={"/articles/show/*"}
-            exact
-            render={() => <ArticlePage />}
-          />
-          <Route
-            path={"/articles/update/*"}
-            exact
-            render={() => <ArticleUpdatePage />}
-          />
+            {/* Articles part */}
+            <Route
+              path={"/articles"}
+              exact
+              render={() => <ArticlesPage contextFunction = {setContext}/>}
+            />
+            <Route
+              path={"/articles/create"}
+              exact
+              render={() => <ArticleCreatePage />}
+            />
+            <Route
+              path={"/articles/show/*"}
+              exact
+              render={() => <ArticlePage />}
+            />
+            <Route
+              path={"/articles/update/*"}
+              exact
+              render={() => <ArticleUpdatePage />}
+            />
 
-          {/* Authors part */}
-          <Route path={"/authors"} exact render={() => <Authors />} />
-          <Route
-            path={"/authors/create"}
-            exact
-            render={() => <AuthorCreatePage />}
-          />
-          <Route
-            path={"/authors/show/*"}
-            exact
-            render={() => <AuthorPage />}
-          />
-          <Route
-            path={"/authors/update/*"}
-            exact
-            render={() => <AuthorUpdatePage />}
-          />
+            <Route
+              path={"/articles/addAuthorsToArticle"}
+              exact
+              render={() => <AddAuthorsToArticlesPage />}
+            />
 
-          {/* <Route path={"*"} component={Forbidden404}/> */}
-        </Switch>
+            {/* Authors part */}
+            <Route path={"/authors"} exact render={() => <Authors />} />
+            <Route
+              path={"/authors/create"}
+              exact
+              render={() => <AuthorCreatePage />}
+            />
+            <Route
+              path={"/authors/show/*"}
+              exact
+              render={() => <AuthorPage />}
+            />
+            <Route
+              path={"/authors/update/*"}
+              exact
+              render={() => <AuthorUpdatePage />}
+            />
+
+            {/* <Route path={"*"} component={Forbidden404}/> */}
+          </Switch>
+
+        </ArticleContext.Provider>
+
       </div>
     </div>
   );

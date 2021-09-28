@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import {
     addArticleToAuthor,
@@ -11,11 +10,10 @@ import ArticleRedo from "./ArticleRedo";
 
 const ArticlePage = (props) => {
     const history = useHistory();
-
     const [articleState, setArticleState] = useState(null);
     const [authorState, setauthorState] = useState(null);
-
     const [isRedoMenuOpen, setIsRedoMenuOpen] = useState(false);
+
 
     useEffect(() => {
         getAllAuthors().then((resp) => {

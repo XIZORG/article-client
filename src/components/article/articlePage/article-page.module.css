@@ -1,60 +1,160 @@
 .article {
-    padding: 0 20px 0;
+  padding: 0 20px 0;
 }
 .article .name {
-    margin-top: 20px;
+  margin-top: 20px;
 
-    font-size: 48px;
-    font-weight: 700;
+  font-size: 48px;
+  font-weight: 700;
 }
 .article .description {
-    font-size: 18px;
-    text-indent: 20px;
+  font-size: 18px;
+  text-indent: 20px;
 }
 
 .article .authors {
-    margin-top: 20px;
-    
+  margin-top: 20px;
 }
 
 .article .authors .text {
-    font-style: italic;
-    color: gray;
-    padding-left: 20px;
+  font-style: italic;
+  color: gray;
+  padding-left: 20px;
 }
 
 .btnToggleRedo {
-    margin-top: 25px;
+  margin-top: 25px;
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .btnToggleRedo img {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 
-    transform: rotate(270deg);
-    margin-right: 10px;
+  transform: rotate(270deg);
+  margin-right: 10px;
 }
 
 .btnToggleRedo.__opened img {
-    transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .btnText {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .alertBtnWrapper {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .alertBtnWrapper button {
-    flex: 0 1 25%;
+  flex: 0 1 25%;
 }
 
 .alertDelete .title {
-    margin-bottom: 15px;  
+  margin-bottom: 15px;
+}
+
+.dropbtn {
+  background-color: #8fbcf0;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  margin: 10px 10px 10px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdowncontent {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 260px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Links inside the dropdown */
+.dropdowncontent a {
+  color: black;
+  display: flex;
+}
+
+/* Change color of dropdown links on hover */
+.dropdowncontent a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdowncontent {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #0077ff;
+}
+
+.but {
+  background-color: #8fbcf0;
+  color: #fff;
+  padding: 1.2rem 2rem;
+  cursor: pointer;
+  user-select: none;
+  border: 1px black;
+  outline: none;
+  transition: background 9999999s;
+}
+
+.but:active {
+  background: rgb(60, 84, 94);
+  transition: background 0s;
+}
+
+.floatingButton {
+  margin: 20px auto 0;
+  text-decoration: none;
+  display: inline-block;
+  width: 140px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 45px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #524f4e;
+  background: #b7d0ec;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+.floatingButton:hover {
+  background: #adcdf3;
+  box-shadow: 0 15px 20px rgba(95, 196, 236, 0.4);
+  color: rgb(0, 0, 0);
+  transform: translateY(-7px);
+}
+
+.articlesContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.blockArticle {
+    margin: 1em 2em 1em;
 }
