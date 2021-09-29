@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import {
     addArticleToAuthor,
+    deleteArticleFromAuthor,
     getAllAuthors,
 } from "../../../dal/server/authors-api";
 import styles from "./article-page.module.css";
@@ -31,6 +32,15 @@ const ArticlePage = (props) => {
 
     const sendAuthorToArticleRequest = (authorId) => {
         addArticleToAuthor(authorId, window.location.href.split("/")[5])
+            .then((response) => {
+                console.log(response);
+                window.location.reload();
+            })
+            .catch((e) => console.log(e.response));
+    };
+
+    const sendDeleteAuthorFromArticle = (authorId) => {
+        deleteArticleFromAuthor(authorId, window.location.href.split("/")[5])
             .then((response) => {
                 console.log(response);
                 window.location.reload();
@@ -88,6 +98,7 @@ const ArticlePage = (props) => {
                     authorState={authorState}
                     sendAuthorToArticleRequest={sendAuthorToArticleRequest}
                     deleteArticleOnServer={deleteArticleOnServer}
+                    sendDeleteAuthorFromArticle={sendDeleteAuthorFromArticle}
                 />
             )}
         </div>

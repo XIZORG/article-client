@@ -4,67 +4,88 @@ import { Link } from "react-router-dom";
 import AlertUI from "../../../utils/uiComponents/AlertUI/AlertUI";
 
 function ArticleRedo({
-    authorState,
-    articleState,
-    deleteArticleOnServer,
-    sendAuthorToArticleRequest,
+  authorState,
+  articleState,
+  deleteArticleOnServer,
+  sendAuthorToArticleRequest,
+  sendDeleteAuthorFromArticle
 }) {
-    const [isDeleteAlertOpened, setIsDeleteAlertOpened] = useState(false);
+  const [isDeleteAlertOpened, setIsDeleteAlertOpened] = useState(false);
 
-    return (
-        <>
-            <div class={styles.articleRedo}>
-                <button className={"btn btn-primary"}>
-                    <Link
-                        to={{ pathname: "/articles/update/" + articleState.id }}
-                    >
-                        update
-                    </Link>
-                </button>
+  return (
+    <>
+      <div class={styles.articleRedo}>
+        <button className={"btn btn-primary"}>
+          <Link to={{ pathname: "/articles/update/" + articleState.id }}>
+            update
+          </Link>
+        </button>
 
-                <button
-                    onClick={() => {
-                        setIsDeleteAlertOpened((prev) => !prev);
-                    }}
-                    className={"btn btn-danger"}
+        <button
+          onClick={() => {
+            setIsDeleteAlertOpened((prev) => !prev);
+          }}
+          className={"btn btn-danger"}
+        >
+          delete
+        </button>
+
+        <div className={styles.dropdown}>
+          <button className={styles.dropbtn}>add author</button>
+          <div className={styles.dropdowncontent}>
+            {authorState.map((author) => (
+              <button
+                className={styles.but}
+                onClick={() => sendAuthorToArticleRequest(author.id)}
+              >
+                {author.name}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.dropdown}>
+          <button className={styles.dropbtn}>delete author</button>
+          <div className={styles.dropdowncontent}>
+            {articleState.authors.map((author) => {
+              return (
+                <a
+                  className={styles.author + " link"}
+                  onClick={() => sendDeleteAuthorFromArticle(author.id)}
                 >
-                    delete
-                </button>
+                  {author.name} |{" "}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
 
-                <div className={styles.dropdown}>
-                    <button className={styles.dropbtn}>Add author</button>
-                    <div className={styles.dropdowncontent}>
-                        {authorState.map((author) => (
-                            <button
-                                className={styles.but}
-                                onClick={() =>
-                                    sendAuthorToArticleRequest(author.id)
-                                }
-                            >
-                                {author.name}
-                            </button>
-                        ))}
-                    </div>
-                </div>
+      {isDeleteAlertOpened && (
+        <AlertUI closeFunc={() => setIsDeleteAlertOpened(false)}>
+          <div className={styles.alertDelete}>
+            <div className={styles.title}>
+              Are you shure you want to delete this article?
             </div>
-            {isDeleteAlertOpened && (
-                <AlertUI
-                    closeFunc={() => setIsDeleteAlertOpened(false)}
-                >
-                    <div className={styles.alertDelete}>
-                        <div className={styles.title}>
-                            Are you shure you want to delete this article?
-                        </div>
-                        <div className={styles.alertBtnWrapper}>
-                            <button className={"btn btn-danger"} onClick={() => deleteArticleOnServer()}>Yes</button>
-                            <button className={"btn"} onClick={() => setIsDeleteAlertOpened(false)}>No</button>
-                        </div>
-                        
-                    </div>
-                </AlertUI>
-            )}
-        </>
-    );
+            <div className={styles.alertBtnWrapper}>
+              <button
+                className={"btn btn-danger"}
+                onClick={() => deleteArticleOnServer()}
+              >
+                Yes
+              </button>
+              <button
+                className={"btn"}
+                onClick={() => setIsDeleteAlertOpened(false)}
+              >
+                No
+              </button>
+            </div>
+          </div>
+        </AlertUI>
+      )}
+    </>
+  );
 }
 
 export default ArticleRedo;

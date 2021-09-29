@@ -23,3 +23,11 @@ export const deleteAuthors = (authorId) => {
 export const addArticleToAuthor = (authorId, id) => {
     return axiosInstance.post(`authors/${authorId}/article`, {id});
 }
+
+export const deleteArticleFromAuthor = (authorId, id) => {
+    console.log(id);
+
+    return axiosInstance.delete(`authors/${authorId}/article`, {
+      data: {id: id}
+    });
+}
