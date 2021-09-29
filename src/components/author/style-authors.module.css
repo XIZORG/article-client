@@ -143,3 +143,16 @@
 .marginLeft {
     margin-left: 10px;
 }
+
+.alertBtnWrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.alertBtnWrapper button {
+  flex: 0 1 25%;
+}
+
+.alertUpdate .title {
+  margin-bottom: 15px;
+}

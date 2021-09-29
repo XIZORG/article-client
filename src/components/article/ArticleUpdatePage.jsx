@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { getArticle, updateArticle } from "../../dal/server/articles-api";
+import AlertUI from "../../utils/uiComponents/AlertUI/AlertUI";
 import styles from "./articlePage/article-page.module.css";
 import stylesMain from "./style-articles.module.css";
 
@@ -10,6 +11,8 @@ const ArticleUpdatePage = (props) => {
   const [description, setDescription] = useState("");
   const [articleState, setArticleState] = useState(null);
   const history = useHistory();
+  const [updateAlert, setUpdateAlert] = useState(false);
+
 
   useEffect(() => {
     getArticle(window.location.href.split("/").pop()).then((resp) => {
@@ -24,11 +27,9 @@ const ArticleUpdatePage = (props) => {
       .then((response) => {
         history.push("/articles");
       })
-      .catch((e) => console.log(e.response));
+      .catch((e) => setUpdateAlert((prev) => !prev));
   };
-
-  if (articleState === null) return <>Downloading...</>;
-
+  
   const changeNameString = (e) => {
     setName(e.target.value);
   };
@@ -76,6 +77,21 @@ const ArticleUpdatePage = (props) => {
           ></textarea>
 
           <button className={stylesMain.floatingButton}>update</button>
+          {updateAlert && (
+                <AlertUI
+                    closeFunc={() => setUpdateAlert(false)}
+                >
+                    <div className={styles.alertUpdate}>
+                        <div className={styles.title}>
+                            Bad request, check input data!
+                        </div>
+                        <div className={styles.alertBtnWrapper}>
+                            <button className={"btn"} onClick={() => setUpdateAlert(false)}>Ok</button>
+                        </div>
+                        
+                    </div>
+                </AlertUI>
+            )}
         </div>
       </form>
     </div>

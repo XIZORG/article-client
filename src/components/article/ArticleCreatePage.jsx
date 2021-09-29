@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { createArticle } from "../../dal/server/articles-api";
 import { getAllAuthors } from "../../dal/server/authors-api";
+import AlertUI from "../../utils/uiComponents/AlertUI/AlertUI";
 import styles from "./style-articles.module.css";
 
 const ArticleCreatePage = (props) => {
@@ -10,6 +11,7 @@ const ArticleCreatePage = (props) => {
   const [authorsId, setAuthorsId] = useState([]);
   const history = useHistory();
   const [authorState, setauthorState] = useState(null);
+  const [createAlert, setCreateAlert] = useState(false);
 
   useEffect(() => {
     getAllAuthors().then((resp) => {
@@ -25,7 +27,7 @@ const ArticleCreatePage = (props) => {
         console.log(response);
         history.push("/articles");
       })
-      .catch((e) => console.log(e.response));
+      .catch((e) => setCreateAlert((prev) => !prev));
   };
 
   const changeNameString = (e) => {
@@ -74,6 +76,21 @@ const ArticleCreatePage = (props) => {
           <button className={styles.floatingButton}>create</button>
         </div>
       </form>
+      {createAlert && (
+                <AlertUI
+                    closeFunc={() => setCreateAlert(false)}
+                >
+                    <div className={styles.alertUpdate}>
+                        <div className={styles.title}>
+                            Bad request, check input data!
+                        </div>
+                        <div className={styles.alertBtnWrapper}>
+                            <button className={"btn"} onClick={() => setCreateAlert(false)}>Ok</button>
+                        </div>
+                        
+                    </div>
+                </AlertUI>
+            )}
     </>
   );
 };

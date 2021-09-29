@@ -60,7 +60,7 @@ const ArticlesPage = ({ contextFunction }) => {
           </>
         ))}
       </div>
-
+    
       <button className={styles.button}>
         <Link to={{ pathname: "/articles/create" }}>create new article</Link>
       </button>

@@ -12,8 +12,8 @@ export const createArticle = (name, description, authorsId) => {
     return axiosInstance.post('articles', {description, name, authorsId});
 }
 
-export const updateArticle = (articleId, name, description, authorsId) => {
-    return axiosInstance.put(`articles/${articleId}`, {description, name, authorsId});
+export const updateArticle = (articleId, name, description) => {
+    return axiosInstance.put(`articles/${articleId}`, {description, name});
 }
 
 export const deleteArticle = (articleId) => {

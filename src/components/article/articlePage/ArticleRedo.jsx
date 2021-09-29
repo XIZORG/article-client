@@ -24,7 +24,6 @@ function ArticleRedo({
 
                 <button
                     onClick={() => {
-                        // sendDataToServer()
                         setIsDeleteAlertOpened((prev) => !prev);
                     }}
                     className={"btn btn-danger"}

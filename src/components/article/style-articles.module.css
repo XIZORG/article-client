@@ -19,6 +19,7 @@
   margin: 0 auto;
   background-color: #4591e9;
   border-radius: 10px;
+  margin-bottom: 2em;
 }
 
 .button a {
@@ -153,4 +154,18 @@
   box-shadow: 0 15px 20px rgba(95, 196, 236, 0.4);
   color: rgb(0, 0, 0);
   transform: translateY(-7px);
+}
+
+
+.alertBtnWrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.alertBtnWrapper button {
+  flex: 0 1 25%;
+}
+
+.alertUpdate .title {
+  margin-bottom: 15px;
 }
