@@ -1,33 +1,32 @@
-import axiosInstance from "./server-api";
+import axios from "axios";
+import { BASE_URL } from "./server-api";
 
-export const getAllAuthors = () => {
-    return axiosInstance.get('authors');
+export const getAllAuthors = async() => {
+    return await axios.get(`${BASE_URL}/authors`);
 }
 
-export const getAuthors = (authorId) => {
-    return axiosInstance.get(`authors/${authorId}`);
+export const getAuthors = async(authorId) => {
+    return await axios.get(`${BASE_URL}/authors/${authorId}`);
 }
 
-export const createAuthors = (name) => {
-    return axiosInstance.post('authors', {name});
+export const createAuthors = async(name) => {
+    return await axios.post(`${BASE_URL}/authors`, {name});
 }
 
-export const updateAuthors = (authorId, name) => {
-    return axiosInstance.put(`authors/${authorId}`, {name});
+export const updateAuthors = async(authorId, name) => {
+    return await axios.put(`${BASE_URL}/authors/${authorId}`, {name});
 }
 
-export const deleteAuthors = (authorId) => {
-    return axiosInstance.delete(`authors/${authorId}`);
+export const deleteAuthors = async(authorId) => {
+    return await axios.delete(`${BASE_URL}/authors/${authorId}`);
 }
 
-export const addArticleToAuthor = (authorId, id) => {
-    return axiosInstance.post(`authors/${authorId}/article`, {id});
+export const addArticleToAuthor = async(authorId, id) => {
+    return await axios.post(`${BASE_URL}/authors/${authorId}/article`, {id});
 }
 
-export const deleteArticleFromAuthor = (authorId, id) => {
-    console.log(id);
-
-    return axiosInstance.delete(`authors/${authorId}/article`, {
+export const deleteArticleFromAuthor = async(authorId, id) => {
+    return await axios.delete(`${BASE_URL}/authors/${authorId}/article`, {
       data: {id: id}
     });
 }

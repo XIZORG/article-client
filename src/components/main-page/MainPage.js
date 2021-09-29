@@ -15,14 +15,14 @@ const MainPage = (props) => {
             <div className={styles.container}>
                 <div className={styles.row}>
                     <div className={styles.col}>
-                        <h2>Authroes</h2>
+                        <h2>Authors</h2>
                         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                        <p><a className="btn btn-secondary" href="#" role="button">View details »</a></p>
+                        <p><a className="btn btn-secondary" href="/authors" role="button">View details »</a></p>
                     </div>
                     <div className={styles.col}>
                         <h2>Some great page</h2>
                         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                        <p><a className="btn btn-secondary" href="#" role="button">View details »</a></p>
+                        <p><a className="btn btn-secondary" href="/" role="button">View details »</a></p>
                     </div>
                     <div className={styles.col}>
                         <h2>Articles</h2>

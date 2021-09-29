@@ -50,10 +50,10 @@ function ArticleRedo({
             {articleState.authors.map((author) => {
               return (
                 <a
-                  className={styles.author + " link"}
+                  className={styles.but}
                   onClick={() => sendDeleteAuthorFromArticle(author.id)}
                 >
-                  {author.name} |{" "}
+                  {author.name}
                 </a>
               );
             })}

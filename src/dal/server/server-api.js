@@ -1,7 +1,1 @@
-import * as axios from 'axios';
-
-const axiosInstance = axios.create({
-    baseURL: "http://localhost:8089/rest/"
-});
-
-export default axiosInstance;
+export const BASE_URL = "http://localhost:8089/rest/";

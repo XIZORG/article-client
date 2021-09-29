@@ -15,6 +15,7 @@ const ArticlesPage = ({ contextFunction }) => {
   useEffect(() => {
     getAllArticles().then((resp) => {
       const allArticles = resp.data;
+      console.log(resp.data);
       setArticle(allArticles);
     });
   }, []);
