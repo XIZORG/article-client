@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
-import { ArticleContext } from "../../App";
 import { getAllArticles } from "../../dal/server/articles-api";
 import BlockUI from "../../utils/uiComponents/BlockUI/BlockUI";
 import styles from "./style-articles.module.css";
@@ -10,12 +9,10 @@ const ArticlesPage = ({ contextFunction }) => {
   const history = useHistory();
   const [article, setArticle] = useState(null);
   const [articleIds, setIds] = useState([]);
-  const contextArr = useContext(ArticleContext);
 
   useEffect(() => {
     getAllArticles().then((resp) => {
       const allArticles = resp.data;
-      console.log(resp.data);
       setArticle(allArticles);
     });
   }, []);
@@ -29,14 +26,6 @@ const ArticlesPage = ({ contextFunction }) => {
     }
     setIds(articleIds);
     contextFunction(articleIds);
-  };
-
-  const pickedElement = () => {
-    if (articleIds != []) {
-      return true;
-    } else {
-      return false;
-    }
   };
 
   if (article === null) return <>Downloading...</>;

@@ -13,7 +13,6 @@ const AuthorCreatePage = (props) => {
     e.preventDefault();
     createAuthors(name)
       .then((response) => {
-        console.log(response);
         history.push("/authors");
       })
       .catch((e) => setCreateAlert((prev) => !prev));

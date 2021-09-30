@@ -53,6 +53,7 @@ const ArticleUpdatePage = (props) => {
         {articleState.authors.map((author) => {
           return (
             <a
+            key={author.id}
               className={styles.author + " link"}
               onClick={() => redirectToAuthor(author.id)}
             >

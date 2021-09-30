@@ -1,6 +1,6 @@
 import { render, waitFor } from "@testing-library/react";
-import ArticlesPage from "../article/ArticlesPage";
-import mockAxios from "../__mocks__/axios";
+import ArticlesPage from "../../article/ArticlesPage";
+import mockAxios from "../../__mocks__/axios";
 import { BrowserRouter } from "react-router-dom";
 
 describe("getAllArticles", () => {
@@ -10,7 +10,18 @@ describe("getAllArticles", () => {
 
     describe("when API call is successful", () => {
 
-        it("decrements count delayed", async () => {
+        it("render without data", async () => {
+            const resp = { data: null };
+
+            mockAxios.get.mockResolvedValueOnce(resp);
+            const { getByText } = render(<BrowserRouter>
+                <ArticlesPage />
+            </BrowserRouter>);
+            const articleName = await waitFor(() => getByText("Downloading..."));
+            expect(articleName).toBeInTheDocument;
+        });
+
+        it("render with data", async () => {
             const resp = {
                 data: [
                     {
@@ -57,8 +68,12 @@ describe("getAllArticles", () => {
             const { getByText } = render(<BrowserRouter>
                 <ArticlesPage />
             </BrowserRouter>);
-            const countSpan = await waitFor(() => getByText("Java"));
-            expect(countSpan).toBeInTheDocument;
+            const articleName = await waitFor(() => getByText("Java"));
+            const createButton = await waitFor(() => getByText("create new article"));
+            const secondArticle = await waitFor(() => getByText("string"));
+            expect(articleName).toBeInTheDocument;
+            expect(createButton).toBeInTheDocument;
+            expect(secondArticle).toBeInTheDocument;
         });
     });
 });

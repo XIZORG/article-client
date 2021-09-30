@@ -3,7 +3,6 @@ import { useHistory } from "react-router";
 import { ArticleContext } from "../../../App";
 import { getArticle } from "../../../dal/server/articles-api";
 import { addArticleToAuthor, getAllAuthors } from "../../../dal/server/authors-api";
-// import { createArticle } from "../../dal/server/articles-api";
 import styles from "./article-page.module.css";
 
 const AddAuthorsToArticlesPage = (props) => {
@@ -20,7 +19,7 @@ const AddAuthorsToArticlesPage = (props) => {
         setArticle(articleArray => ([...articleArray, buff]));
       });
     });
-  }, articleArray);
+  }, []);
 
   useEffect(() => {
     getAllAuthors().then((resp) => {
@@ -57,6 +56,7 @@ const AddAuthorsToArticlesPage = (props) => {
         <div className={styles.dropdowncontent}>
           {authorState.map((auhtor) => (
             <button
+              key ={auhtor.id}
               className={styles.but}
               onClick={() => addIdToArray(auhtor.id)}
             >
@@ -68,7 +68,7 @@ const AddAuthorsToArticlesPage = (props) => {
       <div className={styles.articlesContainer}>
           <h2>choosen articles:</h2>
         {articleArray.map((data) => {
-          return <h2 >,{data.name}</h2>;
+          return <h2 key={data.id}>,{data.name}</h2>;
         })}
       </div>
       <button onClick={sendDataToServer} className={styles.floatingButton}>unite</button>

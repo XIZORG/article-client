@@ -11,7 +11,6 @@ const Authors = (props) => {
 
     useEffect(() => {
         getAllAuthors().then((resp) => {
-            console.log(resp);
             const allAuthors = resp.data;
             setauthorState(allAuthors);
         });
@@ -21,12 +20,6 @@ const Authors = (props) => {
 
     return (
         <div className={styles.authorPage}>
-            {/* <div className={styles.articleWrapper}>
-                {authorState.map((auhtor) => (
-                    <AuthorBlock name={auhtor.name} id={auhtor.id} />
-                ))}
-            </div> */}
-
             <div className={styles.authorWrapper}>
                 {authorState.map((auhtor) => (
                     <BlockUI
@@ -36,6 +29,7 @@ const Authors = (props) => {
                         name={auhtor.name}
                         className={styles.articleBlock}
                         onClick={() => history.push(`/authors/show/${auhtor.id}`)}
+                        key={auhtor.id}
                     />
                 ))}
             </div>

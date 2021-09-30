@@ -12,7 +12,6 @@ const AuthorUpdatePage = (props) => {
 
   useEffect(() => {
     getAuthors(window.location.href.split("/")[5]).then((resp) => {
-      console.log(resp);
       const author = resp.data;
       setAuthorState(author);
     });
@@ -22,7 +21,6 @@ const AuthorUpdatePage = (props) => {
     e.preventDefault();
     updateAuthors(window.location.href.split("/")[5], name)
       .then((response) => {
-        console.log(response);
         history.push("/authors");
       })
       .catch((e) => setUpdateAlert((prev) => !prev));

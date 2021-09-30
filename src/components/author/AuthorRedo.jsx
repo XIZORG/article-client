@@ -11,7 +11,7 @@ function AuthorRedo({
 
     return (
         <>
-            <div class={styles.articleRedo}>
+            <div className={styles.articleRedo}>
                 <button className={"btn btn-primary"}>
                     <Link
                         to={{ pathname: "/authors/update/" + authorState.id }}

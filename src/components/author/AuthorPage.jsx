@@ -12,7 +12,6 @@ const AuthorPage = (props) => {
 
     useEffect( () => {
         getAuthors(window.location.href.split('/')[5]).then( (resp) => {
-            console.log(resp);
             const author = resp.data;
             setAuthorState(author);
         });
@@ -20,7 +19,6 @@ const AuthorPage = (props) => {
 
     const sendDataToServer = () => {
         deleteAuthors(window.location.href.split('/')[5]).then(response => {
-            console.log(response);
             history.push('/authors');
         }).catch(e => console.log(e.response));
     }

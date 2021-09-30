@@ -24,7 +24,6 @@ const ArticleCreatePage = (props) => {
     e.preventDefault();
     createArticle(name, description, authorsId)
       .then((response) => {
-        console.log(response);
         history.push("/articles");
       })
       .catch((e) => setCreateAlert((prev) => !prev));
@@ -51,6 +50,7 @@ const ArticleCreatePage = (props) => {
         <div className={styles.dropdowncontent}>
           {authorState.map((auhtor) => (
             <button
+              key = {auhtor.id}
               className={styles.but}
               onClick={() => addIdToArray(auhtor.id)}
             >
