@@ -34,7 +34,7 @@ const ArticlesPage = ({ contextFunction }) => {
     <div className={styles.articlesPage}>
       <div className={styles.articleWrapper}>
         {article.map((article) => (
-          <>
+          <div className={styles.wrapperComponent} key={article.id}>
             <input
               type="checkbox"
               onChange={() => handleCheckboxChange(article.id)}
@@ -47,7 +47,7 @@ const ArticlesPage = ({ contextFunction }) => {
               className={styles.articleBlock}
               onClick={() => history.push(`/articles/show/${article.id}`)}
             />
-          </>
+          </div>
         ))}
       </div>
     

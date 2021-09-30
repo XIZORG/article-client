@@ -1,13 +1,12 @@
 .block {
     display: flex;
     flex-direction: column;
-
     cursor: pointer;
+    flex-grow:1;
 }
 .block img {
-    width: 400px;
+    width: 350px;
     height: 200px;
-
     border-radius: 10px;
 }
 .block .name {
