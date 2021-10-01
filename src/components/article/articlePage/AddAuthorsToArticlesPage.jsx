@@ -50,7 +50,7 @@ const AddAuthorsToArticlesPage = (props) => {
   if (authorState === null) return <>Downloading...</>;
 
   return (
-    <>
+    <div className={styles.articlesPage}>
       <div className={styles.dropdown}>
         <button className={styles.dropbtn}>Add author</button>
         <div className={styles.dropdowncontent}>
@@ -66,14 +66,22 @@ const AddAuthorsToArticlesPage = (props) => {
         </div>
       </div>
       <div className={styles.articlesContainer}>
-          <h2>choosen articles:</h2>
-        {articleArray.map((data) => {
-          return <h2 key={data.id}>,{data.name}</h2>;
-        })}
+         selected articles:
       </div>
+
+      <div className={styles.articleWrapper}>
+        {articleArray.map((article) => (
+          <div className={styles.wrapperComponent} key={article.id}>
+            <div>
+            {article.name}
+            </div>
+          </div>
+        ))}
+      </div>
+
       <button onClick={sendDataToServer} className={styles.floatingButton}>unite</button>
 
-    </>
+    </div>
   );
 };
 

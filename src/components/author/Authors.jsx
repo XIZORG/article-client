@@ -6,41 +6,42 @@ import { useHistory } from "react-router";
 import styles from "./style-authors.module.css";
 
 const Authors = (props) => {
-    const [authorState, setauthorState] = useState(null);
-    const history = useHistory()
+  const [authorState, setauthorState] = useState(null);
+  const history = useHistory();
 
-    useEffect(() => {
-        getAllAuthors().then((resp) => {
-            const allAuthors = resp.data;
-            setauthorState(allAuthors);
-        });
-    }, [setauthorState]);
+  useEffect(() => {
+    getAllAuthors().then((resp) => {
+      const allAuthors = resp.data;
+      setauthorState(allAuthors);
+    });
+  }, [setauthorState]);
 
-    if (authorState === null) return <>Downloading...</>;
+  if (authorState === null) return <>Downloading...</>;
 
-    return (
-        <div className={styles.authorPage}>
-            <div className={styles.authorWrapper}>
-                {authorState.map((auhtor) => (
-                    <BlockUI
-                        imgUrl={
-                            "https://images.wallpaperscraft.ru/image/single/olen_minimalizm_fotoapparat_plastinka_audiokasseta_jo_jo_vektor_retro_99248_1280x720.jpg"
-                        }
-                        name={auhtor.name}
-                        className={styles.articleBlock}
-                        onClick={() => history.push(`/authors/show/${auhtor.id}`)}
-                        key={auhtor.id}
-                    />
-                ))}
-            </div>
+  return (
+    <div className={styles.authorPage}>
+      <div className={styles.authorWrapper}>
+        {authorState.map((auhtor) => (
+          <BlockUI
+            imgUrl={
+              "https://images.wallpaperscraft.ru/image/single/olen_minimalizm_fotoapparat_plastinka_audiokasseta_jo_jo_vektor_retro_99248_1280x720.jpg"
+            }
+            name={auhtor.name}
+            className={styles.articleBlock}
+            onClick={() => history.push(`/authors/show/${auhtor.id}`)}
+            key={auhtor.id}
+          />
+        ))}
+      </div>
 
-            <button className={styles.button + " col-secondary"}>
-                <Link to={{ pathname: "/authors/create" }}>
-                    create new author
-                </Link>
-            </button>
-        </div>
-    );
+      <button
+        onClick={() => history.push("/authors/create")}
+        className={styles.floatingButton}
+      >
+        create new
+      </button>
+    </div>
+  );
 };
 
 export default Authors;

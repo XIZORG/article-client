@@ -50,16 +50,23 @@ const ArticlesPage = ({ contextFunction }) => {
           </div>
         ))}
       </div>
-    
-      <button className={styles.button}>
-        <Link to={{ pathname: "/articles/create" }}>create new article</Link>
+
+      <button
+        onClick={() => history.push("/articles/create/")}
+        className={styles.floatingButton}
+      >
+        create new
       </button>
+
       {articleIds.length === 0 ? (
         <></>
       ) : (
-        <button className={styles.button}>
-        <Link to={{ pathname: "/articles/addAuthorsToArticle" }}>add authors</Link>
-      </button>
+        <button
+          onClick={() => history.push("/articles/addAuthorsToArticle/")}
+          className={styles.floatingButtonSpec}
+        >
+          add authors
+        </button>
       )}
     </div>
   );

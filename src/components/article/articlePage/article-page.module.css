@@ -1,3 +1,30 @@
+.articlesPage {
+  display: flex;
+  flex-direction: column;
+}
+
+.articleWrapper {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 5%;
+  flex-wrap: wrap;
+}
+
+.wrapperComponent {
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+  text-align: center;
+  min-height: 8em;
+  min-width: 8em;
+  border-radius: 10px;
+  background-color: rgba(93, 170, 214, 0.514);
+  align-items: center;
+  justify-content: center;
+  margin: 0 1em 1em;
+}
+
+
 .article {
   padding: 0 20px 0;
 }
@@ -153,6 +180,8 @@
 .articlesContainer {
     display: flex;
     flex-direction: row;
+    margin: 0em 2em 1em;
+    font-size: 2em;
 }
 
 .blockArticle {
